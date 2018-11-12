@@ -1,5 +1,5 @@
 function addToCart(e) {
-  const path = 'http://robostore-api.us-east-1.elasticbeanstalk.com';
+  const path = 'http://robostore-api.us-east-1.elasticbeanstalk.com/api/orderItems';
  	const uid = $(e.target).attr('data-uid');
 
   axios.post(path, {
