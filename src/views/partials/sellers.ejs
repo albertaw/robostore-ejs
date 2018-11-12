@@ -1,0 +1,8 @@
+<h2>Other sellers</h2>
+<ul class="user-list">
+	<% users.forEach(function(user) { %>
+		<li class="row">
+			<a href="users/<%= user.userId %>"><button class="button button-circle button-dark"><%= user.name %></button></a>
+		</li>
+	<% }) %>
+</ul>

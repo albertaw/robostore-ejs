@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+	<% include ../partials/head %>
+</head>
+<body>
+	<% include ../partials/header %>
+	<div class="bg page-header yellow-bg">
+		<div class="container">
+			<h1>Game Items</h1>
+		</div>
+	</div>
+	<div class="section">
+		<div class="container">
+			<ul class="item-list">
+				<% items.forEach(function(item) { %>
+					<li class="row">
+						<div class="col-3">
+							<img src="<%= item.url %>" alt="<%= item.name %>" />
+						</div>
+						<div class="col-9">
+							<a href="/items/<%= item.itemId %>"><h3><%= item.name %></h3></a>
+							<h4>Sold by <a href="/users/<%= item.userId %>"><%= item.userName %></a></h4>
+							<p>$<%= item.cost %></p>
+							<a href="/items/<%= item.itemId %>" class="button button-default button-blue button-pill">View Details</a>
+						</div>
+					</li>
+				<% }) %>
+			</ul>
+		</div>
+	</div>
+	<% include ../partials/footer %>
+</body>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+	<% include ../partials/head %>
+</head>
+<body>
+	<% include ../partials/header %>
+	<div class="bg page-header yellow-bg">
+		<div class="container">
+			<h1>Games</h1>
+			<ul class="user-list">
+				<% users.forEach(function(user) { %>
+					<li>
+						<a href="users/<%= user.userId %>"><button class="button button-default button-blue button-pill"><%= user.name %></button></a>
+					</li>
+				<% }) %>
+			</ul>
+		</div>
+	</div>
+	<% include ../partials/footer %>
+</body>

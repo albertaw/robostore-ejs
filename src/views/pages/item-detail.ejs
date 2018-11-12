@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+	<% include ../partials/head %>
+</head>
+<body>
+	<% include ../partials/header %>
+	<div class="bg page-header yellow-bg">
+		<div class="container">
+			<h1>Buying Options</h1>
+		</div>
+	</div>
+	<div class="section">
+		<div class="container">
+			<div class="item-detail">
+				<li class="row">
+					<div class="col-3">
+						<img src="<%= item.url %>" alt="<%= item.name %>" class="item"/>
+					</div>
+					<div class="col-9">
+						<h3><%= item.name %></h3>
+						<p>$<%= item.cost %></p>
+						<button data-uid="<%= item.itemId %>" class="button button-default button-pill button-blue btn-add">Add to cart</button>
+					</div>
+				</li>
+			</div>
+			<% include ../partials/sellers %>
+		</div>
+	</div>
+	<% include ../partials/footer %>
+
+</body>
