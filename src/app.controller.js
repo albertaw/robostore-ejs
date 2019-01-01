@@ -22,7 +22,7 @@ function getUsers(req, res, next) {
 
 function getUser(req, res, next) {
   const userPath = host + '/api/users/' + req.params.userId;
-  const itemPath = host +'/api/users/' + req.params.userId + '/inventoryItems';
+  const itemPath = host +'/api/users/' + req.params.userId + '/inventory';
   
   axios.all([
     axios.get(userPath),
@@ -50,18 +50,11 @@ function getItems(req, res, next) {
 
 function getItem(req, res, next) {
   const itemPath = host + '/api/items/' + req.params.itemId;
-  const sellersPath = host + '/api/items/' + req.params.itemId + '/users';
   
-  function handleClick(e) {
-    console.log('item clicked');
-  }
-  axios.all([
-    axios.get(itemPath),
-    axios.get(sellersPath)
-  ])
-  .then(axios.spread((item, sellers) => {
-    res.render('pages/item-detail', {item: item.data, users: sellers.data, clickHandler: 'addToCart()' });
-  }))
+  axios.get(itemPath)
+  .then(item => {
+    res.render('pages/item-detail', {item: item.data});
+  })
   .catch(function (error) {
     res.render('pages/error', {message: error});
   });
